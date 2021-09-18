@@ -19,14 +19,15 @@ function bookArray() {
 
     booksArray[counter] = book;
     counter++;
-    console.log(booksArray);
-    console.log(counter);
 }
 
 function cards() {
     const container = document.querySelector("#container");
     const innerContainer = document.createElement('div');
+    innerContainer.setAttribute('id', index);
     innerContainer.classList.add('card');
+    const idNum = document.createElement('p');
+    idNum.textContent = `Index: ${index}`
     const content = document.createElement('p');
     content.textContent = `Title: ${booksArray[index].title}`
     const content2 = document.createElement('p');
@@ -41,4 +42,5 @@ function cards() {
     innerContainer.appendChild(content4);
     container.appendChild(innerContainer);
     index++;
+    console.log(innerContainer.id);
 }
