@@ -42,5 +42,7 @@ function cards() {
     innerContainer.appendChild(content4);
     container.appendChild(innerContainer);
     index++;
-    console.log(innerContainer.id);
+    console.log(innerContainer.id); //this line confirms each card has it's own id.
+    //you should be able to add buttons that know their id and card that they are
+    //supposed to delete. Not sure how to delete them though? innetHTML ''?
 }
