@@ -3,7 +3,20 @@
     <link rel="stylesheet" type="text/css" href="mystyles.css" />
 </head>
 <body>
-
-
+<form id="form" onsubmit="return false;"">
+    <label for="title">Title Of Book:</label><br>
+    <input type="text" id="title" name="title"><br><br>
+    <label for="author">Author Of Book:</label><br>
+    <input type="text" id="author" name="author"><br><br>
+    <label for='numberOfPages'>Number Of Pages:</label><br>
+    <input type="text" id="numberOfPages" name="numberOfPages"><br><br>
+    <label for="hasBeenRead">Has The Book Been Read?</label><br>
+    <input type="text" id="hasBeenRead" name="hasBeenRead"><br><br>
+    
+    <input type="submit" value="Submit" onclick="bookArray();">
+</form>
+<br>
+<br>
+<button id="btn" onclick="test()">Test</button>
     <script type="text/javascript" src="myscript.js"></script>
 </body>
