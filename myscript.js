@@ -1,4 +1,5 @@
 counter = 0;
+index = 0;
 let booksArray = []
 
 function Book(title, author, numberOfPages, hasBeenRead) {
@@ -22,6 +23,22 @@ function bookArray() {
     console.log(counter);
 }
 
-function test() {
-    console.log(booksArray[1].numberOfPages);
+function cards() {
+    const container = document.querySelector("#container");
+    const innerContainer = document.createElement('div');
+    innerContainer.classList.add('card');
+    const content = document.createElement('p');
+    content.textContent = `Title: ${booksArray[index].title}`
+    const content2 = document.createElement('p');
+    content2.textContent = `Author: ${booksArray[index].author}`
+    const content3 = document.createElement('p');
+    content3.textContent = `Number Of Pages: ${booksArray[index].numberOfPages}`
+    const content4 = document.createElement('p');
+    content4.textContent = `Has Been Read: ${booksArray[index].hasBeenRead}`
+    innerContainer.appendChild(content);
+    innerContainer.appendChild(content2);
+    innerContainer.appendChild(content3);
+    innerContainer.appendChild(content4);
+    container.appendChild(innerContainer);
+    index++;
 }
