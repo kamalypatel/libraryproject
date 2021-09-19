@@ -36,13 +36,23 @@ function cards() {
     content3.textContent = `Number Of Pages: ${booksArray[index].numberOfPages}`
     const content4 = document.createElement('p');
     content4.textContent = `Has Been Read: ${booksArray[index].hasBeenRead}`
+    
+    const btn = document.createElement('button');
+    btn.innerHTML = 'Delete Book';
+    btn.name = 'delete';
+    btn.classList.add('deletebtn');
+    btn.setAttribute('id', index);
+    btn.setAttribute('onclick', deleteBtn());
+
+
     innerContainer.appendChild(content);
     innerContainer.appendChild(content2);
     innerContainer.appendChild(content3);
     innerContainer.appendChild(content4);
+    innerContainer.appendChild(btn);
     container.appendChild(innerContainer);
     index++;
     console.log(innerContainer.id); //this line confirms each card has it's own id.
-    //you should be able to add buttons that know their id and card that they are
+    //you should be able to add     buttons that know their id and card that they are
     //supposed to delete. Not sure how to delete them though? innetHTML ''?
 }
