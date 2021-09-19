@@ -16,6 +16,7 @@
 }
 .deletebtn {
     border: 2px solid red;
-    color: white;
+    background-color: white;
+    color: red;
     margin: 2px;
 }

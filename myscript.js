@@ -41,8 +41,11 @@ function cards() {
     btn.innerHTML = 'Delete Book';
     btn.name = 'delete';
     btn.classList.add('deletebtn');
-    btn.setAttribute('id', index);
-    btn.setAttribute('onclick', deleteBtn());
+    btn.setAttribute('id', 'deletebtn');
+    btn.onclick = function() {
+        const innerContainers = document.getElementById(innerContainer.id);
+        innerContainers.remove();
+    };
 
 
     innerContainer.appendChild(content);
