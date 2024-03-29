@@ -19,3 +19,15 @@ addBookToLibrary(teachYouToBeRich)
 addBookToLibrary(harryPotter)
 
 console.log(myLibrary)
+
+function addBookToLibrary(){
+    const table = document.querySelector('table')
+    const currentBook = document.createElement(tr)
+    const currentBookTitle = document.createElement(td)
+    currentBookTitle.innerHTML = title
+    const currentBookAuthor = document.createElement(td)
+    currentBookAuthor.innerHTML = author
+    currentBook.appendChild(currentBookTitle)
+    currentBook.appendChild(currentBookAuthor)
+    table.appendChild(currentBook)
+}
