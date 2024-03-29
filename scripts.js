@@ -37,14 +37,22 @@ function addBookToLibrary(nextBook){
 
 const button = document.getElementById('addBook')
 
-/* saveButton.addEventListener('click', (title, author, pager, read) => {
-    const nextBook = new Book(title, author, pages, read)
-    console.log(nextBook.title)
-    addBookToLibrary(nextBook)
-}) */
-
 const modal = document.querySelector('dialog')
 
 button.addEventListener('click', () => {
     modal.showModal();
+})
+
+const saveButton = document.getElementById('saveButton')
+
+saveButton.addEventListener('click', () => {
+    const title = document.querySelector('input[name="title"]').value
+    const author = document.querySelector('input[name="author"]').value
+    const pages = document.querySelector('input[name="pages"]').value
+    const read = document.querySelector('input[name="read"]').value
+    const nextBook = new Book(title, author, pages, read)
+    console.log(nextBook.title)
+    addBookToLibrary(nextBook)
+    modal.close()
+    event.preventDefault()
 })
