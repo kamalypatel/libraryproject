@@ -45,13 +45,17 @@ button.addEventListener('click', () => {
 const saveButton = document.getElementById('saveButton')
 
 saveButton.addEventListener('click', () => {
-    const title = document.querySelector('input[name="title"]').value
-    const author = document.querySelector('input[name="author"]').value
-    const pages = document.querySelector('input[name="pages"]').value
-    const read = document.querySelector('input[name="read"]').value
-    const nextBook = new Book(title, author, pages, read)
+    const title = document.querySelector('input[name="title"]')
+    const author = document.querySelector('input[name="author"]')
+    const pages = document.querySelector('input[name="pages"]')
+    const read = document.querySelector('input[name="read"]')
+    const nextBook = new Book(title.value, author.value, pages.value, read.value)
     console.log(nextBook.title)
     addBookToLibrary(nextBook)
+    title.value = ''
+    author.value = ''
+    pages.value = ''
+    read.value = ''
     modal.close()
     event.preventDefault()
 })
