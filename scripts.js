@@ -31,11 +31,24 @@ function addBookToLibrary(nextBook){
         currentBook.remove()
     })
 
+    const readStatus = document.createElement('button')
+    readStatus.setAttribute('type','button')
+    readStatus.setAttribute('name','readStatus')
+    readStatus.innerText = 'Change Read Status'
+    readStatus.addEventListener('click', () => {
+        if (currentBookRead.innerHTML == 'Y') {
+            currentBookRead.innerHTML = 'N'
+        } else {
+            currentBookRead.innerHTML = 'Y'
+        }
+    })
+
     currentBook.appendChild(currentBookTitle)
     currentBook.appendChild(currentBookAuthor)
     currentBook.appendChild(currentBookPages)
     currentBook.appendChild(currentBookRead)
     currentBook.appendChild(deleteButton)
+    currentBook.appendChild(readStatus)
     table.appendChild(currentBook)
 }
 
@@ -51,15 +64,23 @@ const saveButton = document.getElementById('saveButton')
 
 saveButton.addEventListener('click', () => {
     event.preventDefault()
+
     const title = document.querySelector('input[name="title"]')
     const author = document.querySelector('input[name="author"]')
     const pages = document.querySelector('input[name="pages"]')
-    const read = document.querySelector('input[name="read"]')
+    const read = document.querySelector('input[name="read"]:checked')
+
     const nextBook = new Book(title.value, author.value, pages.value, read.value)
+
     addBookToLibrary(nextBook)
+
     title.value = ''
     author.value = ''
     pages.value = ''
-    read.value = ''
+
+    document.querySelectorAll('input[name="read"]').forEach(radio => {
+        radio.checked = false;
+    })
+
     modal.close()
 })

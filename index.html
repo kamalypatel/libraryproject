@@ -31,8 +31,13 @@
             <label name="pages">Number of Pages:</label>
             <input type="number" name="pages">
 
-            <label name="read">Have you read this before?:</label>
-            <input type="text" name="read">
+            <legend>Have you read this?</legend>
+            <input type="radio" id="readChoice1" name="read" value="Y" />
+            <label for="readChoice1">Yes</label>
+
+            <input type="radio" id="readChoice2" name="read" value="N" />
+            <label for="readChoice2">No</label>
+
             <button type="submit" id="saveButton">Save Choice</button>
         </form>
     </dialog>
