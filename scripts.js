@@ -7,10 +7,6 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-function addBookToLibrary(array){
-    myLibrary.push(array)
-}
-
 function addBookToLibrary(nextBook){
     myLibrary.push(nextBook)
     i++
@@ -20,29 +16,19 @@ function addBookToLibrary(nextBook){
 
     const currentBookTitle = document.createElement('td')
     currentBookTitle.innerHTML = nextBook.title
-    currentBookTitle.classList.add(`on${i}`)
     const currentBookAuthor = document.createElement('td')
     currentBookAuthor.innerHTML = nextBook.author
-    currentBookAuthor.classList.add(`on${i}`)
     const currentBookPages = document.createElement('td')
     currentBookPages.innerHTML = nextBook.pages
-    currentBookPages.classList.add(`on${i}`)
     const currentBookRead = document.createElement('td')
     currentBookRead.innerHTML = nextBook.read
-    currentBookRead.classList.add(`on${i}`)
 
     const deleteButton = document.createElement('button')
     deleteButton.setAttribute('type','button')
     deleteButton.setAttribute('name','deleteButton')
-    deleteButton.classList.add(`on${i}`)
+    deleteButton.innerText = 'Delete Book'
     deleteButton.addEventListener('click', () => {
-            /* const buttonClass = this.classList */
-            console.log(deleteButton.classList)
-            const row = document.querySelectorAll(`.${deleteButton.classList[0]}`)
-            for (let n = 0; i < row.length - 1; n++) {
-                console.log(row[n])
-                row[n].remove()
-            }
+        currentBook.remove()
     })
 
     currentBook.appendChild(currentBookTitle)
@@ -64,6 +50,7 @@ button.addEventListener('click', () => {
 const saveButton = document.getElementById('saveButton')
 
 saveButton.addEventListener('click', () => {
+    event.preventDefault()
     const title = document.querySelector('input[name="title"]')
     const author = document.querySelector('input[name="author"]')
     const pages = document.querySelector('input[name="pages"]')
@@ -75,5 +62,4 @@ saveButton.addEventListener('click', () => {
     pages.value = ''
     read.value = ''
     modal.close()
-    event.preventDefault()
 })
