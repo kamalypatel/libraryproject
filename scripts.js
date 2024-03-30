@@ -13,24 +13,43 @@ function addBookToLibrary(array){
 
 function addBookToLibrary(nextBook){
     myLibrary.push(nextBook)
-
+    i++
     const table = document.querySelector('table')
 
     const currentBook = document.createElement('tr')
 
     const currentBookTitle = document.createElement('td')
     currentBookTitle.innerHTML = nextBook.title
+    currentBookTitle.classList.add(`on${i}`)
     const currentBookAuthor = document.createElement('td')
     currentBookAuthor.innerHTML = nextBook.author
+    currentBookAuthor.classList.add(`on${i}`)
     const currentBookPages = document.createElement('td')
     currentBookPages.innerHTML = nextBook.pages
+    currentBookPages.classList.add(`on${i}`)
     const currentBookRead = document.createElement('td')
     currentBookRead.innerHTML = nextBook.read
+    currentBookRead.classList.add(`on${i}`)
+
+    const deleteButton = document.createElement('button')
+    deleteButton.setAttribute('type','button')
+    deleteButton.setAttribute('name','deleteButton')
+    deleteButton.classList.add(`on${i}`)
+    deleteButton.addEventListener('click', () => {
+            /* const buttonClass = this.classList */
+            console.log(deleteButton.classList)
+            const row = document.querySelectorAll(`.${deleteButton.classList[0]}`)
+            for (let n = 0; i < row.length - 1; n++) {
+                console.log(row[n])
+                row[n].remove()
+            }
+    })
 
     currentBook.appendChild(currentBookTitle)
     currentBook.appendChild(currentBookAuthor)
     currentBook.appendChild(currentBookPages)
     currentBook.appendChild(currentBookRead)
+    currentBook.appendChild(deleteButton)
     table.appendChild(currentBook)
 }
 
@@ -50,7 +69,6 @@ saveButton.addEventListener('click', () => {
     const pages = document.querySelector('input[name="pages"]')
     const read = document.querySelector('input[name="read"]')
     const nextBook = new Book(title.value, author.value, pages.value, read.value)
-    console.log(nextBook.title)
     addBookToLibrary(nextBook)
     title.value = ''
     author.value = ''
